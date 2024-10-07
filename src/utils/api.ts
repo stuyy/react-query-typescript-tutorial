@@ -3,7 +3,7 @@ import { CreatePostRequestBody } from "./types";
 const BASE_API_URL = "https://jsonplaceholder.typicode.com";
 
 export const getUsers = async () => {
-	const res = await fetch(`${BASE_API_URL}/adassddsadsadad`);
+	const res = await fetch(`${BASE_API_URL}/users`);
 	if (res.ok) {
 		return res.json();
 	}

@@ -1,7 +1,12 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { createPost, getPosts, getUsers } from "./utils/api";
 import { PostsResponseHttpData, UserResponseHttpData } from "./utils/types";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+const doSomethingExpensive = (title: string) => {
+	console.log("Invoked");
+	return title.split("");
+};
 
 function App() {
 	const USER_ID = 4589;
@@ -9,6 +14,10 @@ function App() {
 	const [body, setBody] = useState("");
 
 	const queryClient = useQueryClient();
+
+	const posts = doSomethingExpensive(title);
+
+	console.log(posts);
 
 	const {
 		data: usersData,
